@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница — Интернет-магазин</title>
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ===== ШАПКА САЙТА ===== -->
+    <header class="header">
+        <div class="header__inner">
+            <!-- Логотип и название магазина -->
+            <a href="index.html" class="header__logo">
+                <span class="header__logo-icon">🛒</span>
+                <span class="header__logo-text">ShopMart</span>
+            </a>
+
+            <!-- Поисковая строка -->
+            <div class="header__search">
+                <input
+                    type="text"
+                    class="header__search-input"
+                    id="search-input"
+                    placeholder="Введите запрос"
+                >
+                <button class="header__search-btn" id="search-btn">Найти</button>
+            </div>
+
+            <!-- Иконки навигации -->
+            <nav class="header__nav">
+                <a href="cart.html" class="header__nav-link" title="Корзина">
+                    <span class="header__nav-icon">🛍️</span>
+                    <!-- Счётчик товаров в корзине -->
+                    <span class="header__cart-count" id="cart-count">0</span>
+                </a>
+                <a href="orders.html" class="header__nav-link" title="Личный кабинет">
+                    <span class="header__nav-icon">👤</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== ОБЛАСТЬ УВЕДОМЛЕНИЙ ===== -->
+    <div class="notifications" id="notifications"></div>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <main class="main">
+        <!-- Боковая панель с фильтрами -->
+        <aside class="sidebar">
+            <h3 class="sidebar__title">Категории</h3>
+            <!-- Чекбоксы категорий будут загружены динамически -->
+            <div class="sidebar__categories" id="categories-list">
+                <p class="sidebar__loading">Загрузка...</p>
+            </div>
+
+            <!-- Фильтр по стоимости -->
+            <h3 class="sidebar__title">Стоимость</h3>
+            <div class="sidebar__price">
+                <div class="sidebar__price-row">
+                    <label for="price-from">От</label>
+                    <input
+                        type="number"
+                        id="price-from"
+                        class="sidebar__price-input"
+                        min="0"
+                        placeholder="100"
+                    >
+                </div>
+                <div class="sidebar__price-row">
+                    <label for="price-to">До</label>
+                    <input
+                        type="number"
+                        id="price-to"
+                        class="sidebar__price-input"
+                        min="0"
+                        placeholder="5000"
+                    >
+                </div>
+            </div>
+
+            <!-- Фильтр по скидке -->
+            <div class="sidebar__discount">
+                <label class="sidebar__checkbox-label">
+                    <input type="checkbox" id="discount-only">
+                    Только товары со скидками
+                </label>
+            </div>
+
+            <!-- Кнопка применения фильтров -->
+            <button class="sidebar__apply-btn" id="apply-filters">Применить</button>
+        </aside>
+
+        <!-- Блок каталога товаров -->
+        <section class="catalog">
+            <!-- Заголовок и сортировка -->
+            <div class="catalog__header">
+                <h2 class="catalog__title">Каталог</h2>
+                <!-- Выпадающий список сортировки -->
+                <select class="catalog__sort" id="sort-select">
+                    <option value="rating_desc">По убыванию рейтинга</option>
+                    <option value="rating_asc">По возрастанию рейтинга</option>
+                    <option value="price_desc">По убыванию цены</option>
+                    <option value="price_asc">По возрастанию цены</option>
+                </select>
+            </div>
+
+            <!-- Сетка карточек товаров -->
+            <div class="catalog__grid" id="products-grid">
+                <p class="catalog__loading">Загрузка товаров...</p>
+            </div>
+
+            <!-- Пагинация (Вариант 2) -->
+            <div class="catalog__pagination" id="pagination"></div>
+        </section>
+    </main>
+
+    <!-- ===== ПОДВАЛ САЙТА ===== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <p class="footer__text">&copy; 2025 ShopMart</p>
+            <p class="footer__contacts">Москва, ул. Большая Семёновская, 38 | +7 (495) 223-05-23</p>
+        </div>
+    </footer>
+
+    <!-- Подключаем скрипты -->
+    <script src="js/api.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>

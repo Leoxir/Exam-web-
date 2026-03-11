@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина — Интернет-магазин</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ===== ШАПКА САЙТА ===== -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <span class="header__logo-icon">🛒</span>
+                <span class="header__logo-text">ShopMart</span>
+            </a>
+            <nav class="header__nav">
+                <!-- Ссылка на каталог -->
+                <a href="index.html" class="header__nav-link" title="Каталог">
+                    <span class="header__nav-icon">☰</span>
+                </a>
+                <!-- Ссылка на личный кабинет -->
+                <a href="orders.html" class="header__nav-link" title="Личный кабинет">
+                    <span class="header__nav-icon">👤</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== ОБЛАСТЬ УВЕДОМЛЕНИЙ ===== -->
+    <div class="notifications" id="notifications"></div>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <main class="main main--single">
+        <section class="cart-section">
+            <h2 class="cart-section__title">Корзина</h2>
+
+            <!-- Сетка товаров в корзине -->
+            <div class="cart-grid" id="cart-grid">
+                <p class="cart-section__empty" id="cart-empty">
+                    Корзина пуста. Перейдите в
+                    <a href="index.html">каталог</a>,
+                    чтобы добавить товары.
+                </p>
+            </div>
+
+            <!-- Блок оформления заказа -->
+            <div class="order-form-wrapper" id="order-form-wrapper" style="display: none;">
+                <h2 class="order-form__title">Оформление заказа</h2>
+                <div class="order-form">
+                    <!-- Левая колонка формы -->
+                    <div class="order-form__col">
+                        <div class="order-form__group">
+                            <label for="order-name">Имя</label>
+                            <input type="text" id="order-name" placeholder="Иванов Иван" required>
+                        </div>
+                        <div class="order-form__group">
+                            <label for="order-phone">Номер телефона</label>
+                            <input type="text" id="order-phone" placeholder="+74952230523" required>
+                        </div>
+                        <div class="order-form__group">
+                            <label for="order-email">Email</label>
+                            <input type="email" id="order-email" placeholder="example@mospolytech.ru" required>
+                        </div>
+                        <div class="order-form__group order-form__group--checkbox">
+                            <label>
+                                <input type="checkbox" id="order-subscribe">
+                                Подписаться на рассылку
+                            </label>
+                        </div>
+                        <div class="order-form__group">
+                            <label for="order-comment">Комментарий</label>
+                            <textarea id="order-comment" rows="3" placeholder="Комментарий к заказу"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка формы -->
+                    <div class="order-form__col">
+                        <div class="order-form__group">
+                            <label for="order-address">Адрес доставки</label>
+                            <input type="text" id="order-address" placeholder="ул. Большая Семёновская, 38" required>
+                        </div>
+                        <div class="order-form__group">
+                            <label for="order-date">Дата доставки</label>
+                            <input type="date" id="order-date" required>
+                        </div>
+                        <div class="order-form__group">
+                            <label for="order-time">Временной интервал доставки</label>
+                            <select id="order-time" required>
+                                <option value="08:00-12:00">08:00-12:00</option>
+                                <option value="12:00-14:00">12:00-14:00</option>
+                                <option value="14:00-18:00">14:00-18:00</option>
+                                <option value="18:00-22:00">18:00-22:00</option>
+                            </select>
+                        </div>
+
+                        <!-- Итоговая стоимость -->
+                        <div class="order-form__total" id="order-total">
+                            <p class="order-form__total-price">
+                                Итоговая стоимость: <strong id="total-price">0 ₽</strong>
+                            </p>
+                            <p class="order-form__total-delivery" id="delivery-info">
+                                (стоимость доставки 0 ₽)
+                            </p>
+                        </div>
+
+                        <!-- Кнопки формы -->
+                        <div class="order-form__buttons">
+                            <button class="btn btn--secondary" id="order-reset">Сбросить</button>
+                            <button class="btn btn--primary" id="order-submit">Оформить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== ПОДВАЛ САЙТА ===== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <p class="footer__text">&copy; 2025 ShopMart</p>
+            <p class="footer__contacts">Москва, ул. Большая Семёновская, 38 | +7 (495) 223-05-23</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

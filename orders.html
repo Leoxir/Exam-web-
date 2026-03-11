@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — Интернет-магазин</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ===== ШАПКА САЙТА ===== -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <span class="header__logo-icon">🛒</span>
+                <span class="header__logo-text">ShopMart</span>
+            </a>
+            <nav class="header__nav">
+                <a href="index.html" class="header__nav-link" title="Каталог">
+                    <span class="header__nav-icon">☰</span>
+                </a>
+                <a href="cart.html" class="header__nav-link" title="Корзина">
+                    <span class="header__nav-icon">🛍️</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== ОБЛАСТЬ УВЕДОМЛЕНИЙ ===== -->
+    <div class="notifications" id="notifications"></div>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <main class="main main--single">
+        <section class="orders-section">
+            <h2 class="orders-section__title">Заказы</h2>
+
+            <!-- Таблица заказов -->
+            <div class="orders-table-wrapper">
+                <table class="orders-table" id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Дата оформления</th>
+                            <th>Состав заказа</th>
+                            <th>Стоимость</th>
+                            <th>Доставка</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-tbody">
+                        <tr>
+                            <td colspan="6" class="orders-table__loading">
+                                Загрузка заказов...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО: ПРОСМОТР ЗАКАЗА ===== -->
+    <div class="modal-overlay" id="modal-view" style="display: none;">
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title">Просмотр заказа</h3>
+                <button class="modal__close" data-close="modal-view">&times;</button>
+            </div>
+            <div class="modal__body" id="modal-view-body">
+                <!-- Данные заказа будут вставлены динамически -->
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--primary" data-close="modal-view">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО: РЕДАКТИРОВАНИЕ ЗАКАЗА ===== -->
+    <div class="modal-overlay" id="modal-edit" style="display: none;">
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title">Редактирование заказа</h3>
+                <button class="modal__close" data-close="modal-edit">&times;</button>
+            </div>
+            <div class="modal__body" id="modal-edit-body">
+                <!-- Форма редактирования будет вставлена динамически -->
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--secondary" data-close="modal-edit">Отмена</button>
+                <button class="btn btn--primary" id="modal-edit-save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО: УДАЛЕНИЕ ЗАКАЗА ===== -->
+    <div class="modal-overlay" id="modal-delete" style="display: none;">
+        <div class="modal modal--small">
+            <div class="modal__header">
+                <h3 class="modal__title">Удаление заказа</h3>
+                <button class="modal__close" data-close="modal-delete">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p>Вы уверены, что хотите удалить заказ?</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--secondary" data-close="modal-delete">Нет</button>
+                <button class="btn btn--danger" id="modal-delete-confirm">Да</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ПОДВАЛ САЙТА ===== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <p class="footer__text">&copy; 2025 ShopMart</p>
+            <p class="footer__contacts">Москва, ул. Большая Семёновская, 38 | +7 (495) 223-05-23</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/orders.js"></script>
+</body>
+</html>
