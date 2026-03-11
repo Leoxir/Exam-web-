@@ -225,7 +225,13 @@ function submitOrder() {
     var phone = document.getElementById('order-phone').value.trim();
     var email = document.getElementById('order-email').value.trim();
     var address = document.getElementById('order-address').value.trim();
-    var deliveryDate = document.getElementById('order-date').value;
+    // Получаем дату и конвертируем из YYYY-MM-DD в ДД.ММ.ГГГГ для API
+    var rawDate = document.getElementById('order-date').value;
+    var deliveryDate = '';
+    if (rawDate) {
+        var parts = rawDate.split('-');
+        deliveryDate = parts[2] + '.' + parts[1] + '.' + parts[0];
+    }
     var deliveryTime = document.getElementById('order-time').value;
     var comment = document.getElementById('order-comment').value.trim();
     var subscribe = document.getElementById('order-subscribe').checked;
